@@ -1,0 +1,27 @@
+{
+  "originUrl": "https://www.idfcfirstbank.com",
+  "aborted": false,
+  "urls": [
+    {
+      "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+      "source": "MANUAL",
+      "targetPath": "/credit-card/metal-credit-card/mayura",
+      "id": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614"
+    }
+  ],
+  "lastCrawled": "MANUAL",
+  "crawlOptions": {
+    "timeout": 10000,
+    "inclusionPatterns": [],
+    "exclusionPatterns": [],
+    "limit": 100,
+    "sameDomain": true,
+    "keepHash": false,
+    "strategy": "manual",
+    "strategiesAttempted": [
+      "MANUAL"
+    ]
+  },
+  "extractionErrors": [],
+  "errorCountMessage": "none"
+}
