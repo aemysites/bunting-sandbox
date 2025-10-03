@@ -11,6 +11,7 @@
  */
 (() => {
   // remove dom elements - typically cookie consent or other items that should not be imported
-  document.querySelectorAll('#grexitintentPopup').forEach((el) => el.remove());
+  //document.querySelectorAll('#grexitintentPopup').forEach((el) => el.remove());
+  document.querySelectorAll('.close, .btn-close, .modal-close, [aria-label="Close"], [data-dismiss="modal"], .fa-times, .fa-close, .icon-close').forEach((el) => el.click());
 
 })();
