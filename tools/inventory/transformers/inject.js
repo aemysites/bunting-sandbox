@@ -12,6 +12,68 @@
 (() => {
   // remove dom elements - typically cookie consent or other items that should not be imported
   //document.querySelectorAll('#grexitintentPopup').forEach((el) => el.remove());
-  document.querySelectorAll('.close, .btn-close, .modal-close, [aria-label="Close"], [data-dismiss="modal"], .fa-times, .fa-close, .icon-close').forEach((el) => el.click());
+  //document.querySelectorAll('.close, .btn-close, .modal-close, [aria-label="Close"], [data-dismiss="modal"], .fa-times, .fa-close, .icon-close').forEach((el) => el.click());
+
+  // Automatically accept cookie consent banners to ensure clean inventory generation
+    
+  function acceptCookieBanner() {
+    console.log('Cookie banner: Starting acceptance process');
+      
+    // Check if cookie dialog exists
+    const cookieDialog = document.querySelector('#cookieDialog');
+    if (cookieDialog) {
+      console.log('Cookie banner: Found cookieDialog element');
+       
+      // Method 1: Simple click on Accept button (most likely to work)
+      const acceptButton = document.querySelector('#cookieDialog .disclaimer-accept-button[data-ltype="cscookie"]');
+        
+      if (acceptButton) {
+        console.log(`Cookie banner: Found Accept button - "${acceptButton.textContent.trim()}"`);
+        acceptButton.click();
+        console.log('Cookie banner: Clicked Accept button');
+        
+        console.log('Cookie banner: Cookie accepted successfully');
+          
+      } else {
+        console.log('Cookie banner: Accept button not found');
+      }
+        
+    } else {
+      console.log('Cookie banner: No cookieDialog found');
+      return false;
+    }
+  }
+    
+  // Try to accept cookie banner immediately
+  acceptCookieBanner();
+    
+  // Set up a mutation observer to catch dynamically loaded cookie banners
+  const observer = new MutationObserver((mutations) => {
+    let shouldCheck = false;
+      
+    mutations.forEach((mutation) => {
+      if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+        // Check if the cookieDialog was added
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeType === 1) { // Element node
+            if (node.id === 'cookieDialog' || node.querySelector('#cookieDialog')) {
+              shouldCheck = true;
+            }
+          }
+        });
+      }
+    });
+      
+    if (shouldCheck) {
+      console.log('Cookie banner: New content detected, checking for cookie banners');
+      acceptCookieBanner();
+    }
+  });
+    
+  // Start observing
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
 
 })();
