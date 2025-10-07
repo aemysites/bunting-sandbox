@@ -10,222 +10,236 @@
  * governing permissions and limitations under the License.
  */
 (() => {
-  console.log('Inject script: Starting cleanup process for IDFC FIRST Bank page');
+  console.log('Inject script: Starting aggressive cleanup process for IDFC FIRST Bank page');
   
-  // Comprehensive cleanup function for IDFC FIRST Bank specific elements
-  function cleanupPage() {
-    console.log('Cleanup: Starting comprehensive page cleanup');
+  // Track cleanup attempts to avoid infinite loops
+  let cleanupCount = 0;
+  const maxCleanupAttempts = 50;
+  
+  // Aggressive cleanup function for late-loading popups
+  function aggressiveCleanup() {
+    cleanupCount++;
+    console.log(`Cleanup: Attempt ${cleanupCount} - Starting aggressive cleanup`);
     
-    // 1. Remove cookie consent banners and overlays
-    const cookieSelectors = [
-      '#cookieDialog',
-      '.cookie-banner',
-      '.cookie-consent',
-      '.cookie-notice',
-      '[data-cookie]',
-      '.gdpr-banner',
-      '.privacy-banner',
-      '.consent-banner'
+    // 1. Remove ALL elements with high z-index (likely overlays/popups)
+    const allElements = document.querySelectorAll('*');
+    allElements.forEach(el => {
+      const styles = window.getComputedStyle(el);
+      const zIndex = parseInt(styles.zIndex) || 0;
+      const position = styles.position;
+      const display = styles.display;
+      
+      // Remove elements that are likely popups/overlays
+      if ((zIndex > 100 && position !== 'static') || 
+          (position === 'fixed' && zIndex > 10) ||
+          (position === 'sticky' && zIndex > 10) ||
+          (display === 'block' && zIndex > 50)) {
+        
+        // Check if element is visible and likely a popup
+        if (el.offsetParent !== null && el.offsetWidth > 0 && el.offsetHeight > 0) {
+          console.log(`Cleanup: Removing high z-index element (z-index: ${zIndex}, position: ${position})`);
+          el.remove();
+        }
+      }
+    });
+    
+    // 2. Remove specific popup/overlay patterns
+    const popupSelectors = [
+      // Cookie and consent banners
+      '#cookieDialog', '.cookie-banner', '.cookie-consent', '.cookie-notice',
+      '[data-cookie]', '.gdpr-banner', '.privacy-banner', '.consent-banner',
+      
+      // Modal and popup patterns
+      '.modal', '.popup', '.overlay', '.lightbox', '.dialog',
+      '.popup-overlay', '.modal-overlay', '.backdrop',
+      
+      // Banner and notification patterns
+      '.banner', '.notification', '.alert', '.toast', '.snackbar',
+      '.promotion', '.offer-banner', '.sticky-banner', '.floating-banner',
+      
+      // IDFC specific patterns
+      '.idfc-popup', '.idfc-modal', '.idfc-banner',
+      '[id*="popup"]', '[id*="modal"]', '[id*="overlay"]',
+      '[class*="popup"]', '[class*="modal"]', '[class*="overlay"]',
+      
+      // Generic overlay patterns
+      '.overlay', '.backdrop', '.mask', '.shade',
+      '[role="dialog"]', '[role="alertdialog"]', '[aria-modal="true"]'
     ];
     
-    cookieSelectors.forEach(selector => {
+    popupSelectors.forEach(selector => {
       const elements = document.querySelectorAll(selector);
       elements.forEach(el => {
-        console.log(`Cleanup: Removing cookie element: ${selector}`);
-        el.remove();
+        if (el.offsetParent !== null) { // Only remove visible elements
+          console.log(`Cleanup: Removing popup element: ${selector}`);
+          el.remove();
+        }
       });
     });
     
-    // 2. Close any modal pop-ups, overlays, and promotional banners
+    // 3. Click ALL close buttons and dismiss elements
     const closeSelectors = [
-      '.close',
-      '.btn-close', 
-      '.modal-close',
-      '[aria-label="Close"]',
-      '[data-dismiss="modal"]',
-      '.fa-times',
-      '.fa-close',
-      '.icon-close',
-      '.popup-close',
-      '.overlay-close',
-      '[data-close]',
-      '.dismiss',
-      '.skip',
-      '.continue',
-      '.proceed'
+      '.close', '.btn-close', '.modal-close', '.popup-close', '.overlay-close',
+      '[aria-label="Close"]', '[aria-label="close"]', '[data-dismiss="modal"]',
+      '.fa-times', '.fa-close', '.icon-close', '.close-icon', '.x-close',
+      '[data-close]', '[data-dismiss]', '.dismiss', '.skip', '.continue',
+      '.proceed', '.accept', '.ok', '.got-it', '.understand',
+      'button[type="button"]', '.btn', 'a[href="#"]'
     ];
     
     closeSelectors.forEach(selector => {
       const elements = document.querySelectorAll(selector);
       elements.forEach(el => {
-        if (el.offsetParent !== null) { // Only click visible elements
+        if (el.offsetParent !== null && el.offsetWidth > 0 && el.offsetHeight > 0) {
           console.log(`Cleanup: Clicking close button: ${selector}`);
-          el.click();
-        }
-      });
-    });
-    
-    // 3. Remove specific IDFC FIRST Bank elements that might interfere
-    const idfcSelectors = [
-      '.popup',
-      '.modal',
-      '.overlay',
-      '.banner',
-      '.promotion',
-      '.offer-banner',
-      '.notification',
-      '.alert',
-      '.toast',
-      '.floating-element',
-      '.sticky-banner'
-    ];
-    
-    idfcSelectors.forEach(selector => {
-      const elements = document.querySelectorAll(selector);
-      elements.forEach(el => {
-        // Check if element is likely a popup/overlay (has high z-index or is positioned fixed/sticky)
-        const styles = window.getComputedStyle(el);
-        const zIndex = parseInt(styles.zIndex) || 0;
-        const position = styles.position;
-        
-        if (zIndex > 100 || position === 'fixed' || position === 'sticky') {
-          console.log(`Cleanup: Removing overlay element: ${selector}`);
-          el.remove();
-        }
-      });
-    });
-    
-    // 4. Accept cookie consent if present
-    acceptCookieBanner();
-    
-    // 5. Remove any remaining problematic elements
-    const problematicSelectors = [
-      '[style*="position: fixed"]',
-      '[style*="position: sticky"]',
-      '[style*="z-index"]'
-    ];
-    
-    problematicSelectors.forEach(selector => {
-      const elements = document.querySelectorAll(selector);
-      elements.forEach(el => {
-        const styles = window.getComputedStyle(el);
-        const zIndex = parseInt(styles.zIndex) || 0;
-        if (zIndex > 50) { // High z-index likely indicates overlay
-          console.log(`Cleanup: Removing high z-index element`);
-          el.remove();
-        }
-      });
-    });
-  }
-  
-  // Enhanced cookie banner acceptance function
-  function acceptCookieBanner() {
-    console.log('Cookie banner: Starting acceptance process');
-    
-    // Multiple selectors for different cookie banner implementations
-    const cookieBannerSelectors = [
-      '#cookieDialog',
-      '.cookie-banner',
-      '.cookie-consent',
-      '.gdpr-banner',
-      '.privacy-notice',
-      '[data-cookie]'
-    ];
-    
-    let bannerFound = false;
-    
-    cookieBannerSelectors.forEach(selector => {
-      const banner = document.querySelector(selector);
-      if (banner && !bannerFound) {
-        console.log(`Cookie banner: Found banner with selector: ${selector}`);
-        bannerFound = true;
-        
-        // Try multiple accept button selectors
-        const acceptButtonSelectors = [
-          '.disclaimer-accept-button[data-ltype="cscookie"]',
-          '.accept-button',
-          '.cookie-accept',
-          '.btn-accept',
-          '[data-accept]',
-          'button[type="submit"]',
-          '.btn-primary',
-          '.btn-success',
-          'button:contains("Accept")',
-          'button:contains("Agree")',
-          'button:contains("OK")',
-          'button:contains("Continue")'
-        ];
-        
-        let buttonClicked = false;
-        acceptButtonSelectors.forEach(btnSelector => {
-          if (!buttonClicked) {
-            const acceptButton = banner.querySelector(btnSelector) || document.querySelector(btnSelector);
-            if (acceptButton && acceptButton.offsetParent !== null) {
-              console.log(`Cookie banner: Found accept button: ${btnSelector}`);
-              acceptButton.click();
-              console.log('Cookie banner: Clicked accept button');
-              buttonClicked = true;
-            }
+          try {
+            el.click();
+            // Also try triggering events
+            el.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+            el.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
+            el.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));
+          } catch (e) {
+            console.log(`Cleanup: Error clicking element: ${e.message}`);
           }
-        });
-        
-        // If no button found, try to remove the banner
-        if (!buttonClicked) {
-          console.log('Cookie banner: No accept button found, removing banner');
-          banner.remove();
         }
+      });
+    });
+    
+    // 4. Force remove any remaining overlays by targeting body children
+    const bodyChildren = Array.from(document.body.children);
+    bodyChildren.forEach(child => {
+      const styles = window.getComputedStyle(child);
+      const zIndex = parseInt(styles.zIndex) || 0;
+      const position = styles.position;
+      
+      // Remove any direct body children that look like overlays
+      if ((zIndex > 50) || (position === 'fixed') || (position === 'sticky')) {
+        console.log(`Cleanup: Removing overlay child of body (z-index: ${zIndex})`);
+        child.remove();
       }
     });
     
-    if (!bannerFound) {
-      console.log('Cookie banner: No cookie banner found');
-    }
+    // 5. Disable any remaining popup triggers
+    const popupTriggers = document.querySelectorAll('[onclick*="popup"], [onclick*="modal"], [onclick*="show"]');
+    popupTriggers.forEach(trigger => {
+      trigger.removeAttribute('onclick');
+      trigger.onclick = null;
+    });
   }
   
-  // Execute cleanup immediately
-  cleanupPage();
+  // Execute aggressive cleanup immediately
+  aggressiveCleanup();
   
-  // Set up mutation observer for dynamic content
-  const observer = new MutationObserver((mutations) => {
+  // Set up continuous monitoring for late-loading popups
+  const continuousObserver = new MutationObserver((mutations) => {
     let shouldCleanup = false;
     
     mutations.forEach((mutation) => {
       if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
         mutation.addedNodes.forEach((node) => {
           if (node.nodeType === 1) { // Element node
-            // Check for common popup/overlay indicators
+            const styles = window.getComputedStyle(node);
+            const zIndex = parseInt(styles.zIndex) || 0;
+            const position = styles.position;
+            
+            // Check for any new elements that might be popups
             if (node.classList && (
               node.classList.contains('popup') ||
               node.classList.contains('modal') ||
               node.classList.contains('overlay') ||
               node.classList.contains('banner') ||
-              node.id === 'cookieDialog'
+              node.classList.contains('notification') ||
+              node.classList.contains('alert') ||
+              node.id === 'cookieDialog' ||
+              zIndex > 50 ||
+              position === 'fixed' ||
+              position === 'sticky'
             )) {
               shouldCleanup = true;
+              console.log('Cleanup: New popup/overlay detected, triggering cleanup');
             }
           }
         });
       }
+      
+      // Also check for style changes that might indicate popup appearance
+      if (mutation.type === 'attributes' && 
+          (mutation.attributeName === 'style' || mutation.attributeName === 'class')) {
+        const target = mutation.target;
+        if (target.nodeType === 1) {
+          const styles = window.getComputedStyle(target);
+          const zIndex = parseInt(styles.zIndex) || 0;
+          const position = styles.position;
+          
+          if (zIndex > 50 || position === 'fixed' || position === 'sticky') {
+            shouldCleanup = true;
+            console.log('Cleanup: Style change detected that might indicate popup');
+          }
+        }
+      }
     });
     
-    if (shouldCleanup) {
-      console.log('Cleanup: Dynamic content detected, running cleanup');
-      setTimeout(cleanupPage, 100); // Small delay to let content fully load
+    if (shouldCleanup && cleanupCount < maxCleanupAttempts) {
+      console.log('Cleanup: Mutation detected, running aggressive cleanup');
+      setTimeout(() => aggressiveCleanup(), 50); // Very short delay
     }
   });
   
-  // Start observing with comprehensive options
-  observer.observe(document.body, {
+  // Start continuous monitoring
+  continuousObserver.observe(document.body, {
     childList: true,
     subtree: true,
     attributes: true,
-    attributeFilter: ['class', 'id', 'style']
+    attributeFilter: ['class', 'id', 'style', 'data-*']
   });
   
-  // Additional cleanup after a delay to catch late-loading elements
-  setTimeout(cleanupPage, 1000);
-  setTimeout(cleanupPage, 3000);
+  // Set up multiple cleanup intervals to catch late-loading popups
+  const cleanupIntervals = [100, 500, 1000, 2000, 3000, 5000, 10000, 15000, 30000];
   
-  console.log('Inject script: Cleanup process completed');
+  cleanupIntervals.forEach((delay, index) => {
+    setTimeout(() => {
+      if (cleanupCount < maxCleanupAttempts) {
+        console.log(`Cleanup: Scheduled cleanup ${index + 1} after ${delay}ms`);
+        aggressiveCleanup();
+      }
+    }, delay);
+  });
+  
+  // Set up a final aggressive cleanup that runs every 2 seconds for the first minute
+  let finalCleanupCount = 0;
+  const finalCleanupInterval = setInterval(() => {
+    if (finalCleanupCount < 30 && cleanupCount < maxCleanupAttempts) { // Run for 1 minute
+      console.log(`Cleanup: Final aggressive cleanup attempt ${finalCleanupCount + 1}`);
+      aggressiveCleanup();
+      finalCleanupCount++;
+    } else {
+      clearInterval(finalCleanupInterval);
+      console.log('Cleanup: Final cleanup interval stopped');
+    }
+  }, 2000);
+  
+  // Override common popup creation methods
+  const originalCreateElement = document.createElement;
+  document.createElement = function(tagName) {
+    const element = originalCreateElement.call(this, tagName);
+    
+    // Monitor for elements that might become popups
+    const observer = new MutationObserver(() => {
+      const styles = window.getComputedStyle(element);
+      const zIndex = parseInt(styles.zIndex) || 0;
+      const position = styles.position;
+      
+      if (zIndex > 50 || position === 'fixed' || position === 'sticky') {
+        console.log('Cleanup: New element detected as potential popup, removing');
+        element.remove();
+      }
+    });
+    
+    observer.observe(element, { attributes: true, attributeFilter: ['style', 'class'] });
+    
+    return element;
+  };
+  
+  console.log('Inject script: Aggressive cleanup system initialized');
 
 })();
