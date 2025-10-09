@@ -1,0 +1,388 @@
+{
+  "fragments": [
+    {
+      "name": "nav",
+      "path": "/nav",
+      "totalBoxes": 1,
+      "instances": [
+        {
+          "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+          "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+          "uuid": "4beb6b22-00-49bf44183a793fdcabc69da9d6ed98881794fe89",
+          "xpath": "/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/header[1]/div[1]/div[1]"
+        }
+      ],
+      "styles": {
+        "height": 56,
+        "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box"
+      }
+    },
+    {
+      "name": "footer",
+      "path": "/footer",
+      "totalBoxes": 1,
+      "instances": [
+        {
+          "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+          "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+          "uuid": "4beb6b22-27-4c01274fedd73934e167f11b4ea0f20604819d4f",
+          "xpath": "/html[1]/body[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/footer[1]/div[2]"
+        }
+      ],
+      "styles": {}
+    }
+  ],
+  "blocks": [
+    {
+      "name": "header",
+      "cluster": 1,
+      "source": "Header",
+      "target": "Header (header1)",
+      "key": "header1",
+      "instances": [
+        {
+          "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+          "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+          "uuid": "4beb6b22-00-49bf44183a793fdcabc69da9d6ed98881794fe89",
+          "xpath": "/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/header[1]/div[1]/div[1]",
+          "section": "section-1"
+        }
+      ]
+    },
+    {
+      "name": "unknown",
+      "cluster": 2,
+      "instances": [
+        {
+          "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+          "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+          "uuid": "4beb6b22-01-7b95230138c5b46b60f73a628b0db56d7dd1c57e",
+          "xpath": "/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/header[1]/div[1]/div[2]",
+          "section": "section-1"
+        }
+      ]
+    },
+    {
+      "name": "Columns",
+      "cluster": 3,
+      "source": "Columns",
+      "target": "Columns (columns3)",
+      "key": "columns3",
+      "instances": [
+        {
+          "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+          "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+          "uuid": "4beb6b22-04-912c26558a1ddb4828eea4c2c94207daf63c70e2",
+          "xpath": "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]"
+        }
+      ]
+    },
+    {
+      "name": "Hero",
+      "cluster": 4,
+      "source": "Hero",
+      "target": "Hero (hero4)",
+      "key": "hero4",
+      "instances": [
+        {
+          "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+          "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+          "uuid": "4beb6b22-05-d12ce350dcb5810cbe06912594cd185cacc101d3",
+          "xpath": "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/div[3]"
+        }
+      ]
+    },
+    {
+      "name": "Carousel",
+      "cluster": 5,
+      "source": "Carousel",
+      "target": "Carousel (carousel5)",
+      "key": "carousel5",
+      "instances": [
+        {
+          "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+          "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+          "uuid": "4beb6b22-06-d77511688e7351eda0917cfde9faf4a33db9075a",
+          "xpath": "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[2]"
+        }
+      ]
+    },
+    {
+      "name": "Columns",
+      "cluster": 6,
+      "source": "Columns",
+      "target": "Columns (columns6)",
+      "key": "columns6",
+      "instances": [
+        {
+          "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+          "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+          "uuid": "4beb6b22-07-1dfe702d3e18cea4505a957b77c679695082ce7b",
+          "xpath": "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[3]",
+          "section": "section-1"
+        }
+      ]
+    },
+    {
+      "name": "Cards",
+      "cluster": 7,
+      "source": "Cards",
+      "target": "Cards (cards7)",
+      "key": "cards7",
+      "instances": [
+        {
+          "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+          "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+          "uuid": "4beb6b22-08-958a8aa8933d1629f40ece08b4db59437e301333",
+          "xpath": "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[4]"
+        }
+      ]
+    },
+    {
+      "name": "Tabs",
+      "cluster": 8,
+      "source": "Tabs",
+      "target": "Tabs (tabs8)",
+      "key": "tabs8",
+      "instances": [
+        {
+          "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+          "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+          "uuid": "4beb6b22-09-051735944d4c7fbe653f01060062181263e661fa",
+          "xpath": "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[5]",
+          "section": "section-2"
+        }
+      ]
+    },
+    {
+      "name": "Cards",
+      "cluster": 9,
+      "source": "Cards",
+      "target": "Cards (cards9)",
+      "key": "cards9",
+      "instances": [
+        {
+          "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+          "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+          "uuid": "4beb6b22-10-f953e7e4324a76969ba7a83306e885a1bfab515a",
+          "xpath": "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]"
+        }
+      ]
+    },
+    {
+      "name": "unknown",
+      "cluster": 10,
+      "instances": [
+        {
+          "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+          "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+          "uuid": "4beb6b22-12-ae21af7657de89f50cd84acacfe1554b48a7cfac",
+          "xpath": "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[6]/div[1]/div[2]/section[1]/div[1]"
+        }
+      ]
+    },
+    {
+      "name": "Cards",
+      "cluster": 11,
+      "source": "Cards",
+      "target": "Cards (cards11)",
+      "key": "cards11",
+      "instances": [
+        {
+          "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+          "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+          "uuid": "4beb6b22-15-1eb18ddac8c0444565fa1597a57a0d563f25739a",
+          "xpath": "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[7]"
+        }
+      ]
+    },
+    {
+      "name": "Accordion",
+      "cluster": 12,
+      "source": "Accordion",
+      "target": "Accordion (accordion12)",
+      "key": "accordion12",
+      "instances": [
+        {
+          "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+          "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+          "uuid": "4beb6b22-16-6755ae2f696faf17a1fd75a4651589d8320a3e9e",
+          "xpath": "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[8]"
+        }
+      ]
+    },
+    {
+      "name": "Cards",
+      "cluster": 13,
+      "source": "Cards",
+      "target": "Cards (cards13)",
+      "key": "cards13",
+      "instances": [
+        {
+          "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+          "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+          "uuid": "4beb6b22-18-a0ac720ada842467e74bd216df77e7005b29b69a",
+          "xpath": "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[9]/section[1]/div[1]"
+        }
+      ]
+    },
+    {
+      "name": "Cards",
+      "cluster": 14,
+      "source": "Cards",
+      "target": "Cards (cards14)",
+      "key": "cards14",
+      "instances": [
+        {
+          "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+          "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+          "uuid": "4beb6b22-21-af6a580a21e46ca7d99092ad78c5b64cf1d1adfd",
+          "xpath": "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[10]/section[1]/div[1]/div[2]/div[1]"
+        }
+      ]
+    },
+    {
+      "name": "Cards",
+      "cluster": 15,
+      "source": "Cards",
+      "target": "Cards (cards15)",
+      "key": "cards15",
+      "instances": [
+        {
+          "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+          "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+          "uuid": "4beb6b22-22-674040ab3524684b7033481cdf6440f6df8ef73d",
+          "xpath": "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[11]"
+        }
+      ]
+    },
+    {
+      "name": "Columns",
+      "cluster": 16,
+      "source": "Columns",
+      "target": "Columns (columns16)",
+      "key": "columns16",
+      "instances": [
+        {
+          "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+          "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+          "uuid": "4beb6b22-24-434eceadd560066b7686d0761aeb769dc45cadc7",
+          "xpath": "/html[1]/body[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/footer[1]/div[1]/div[1]"
+        }
+      ]
+    },
+    {
+      "name": "Columns",
+      "cluster": 17,
+      "source": "Columns",
+      "target": "Columns (columns17)",
+      "key": "columns17",
+      "instances": [
+        {
+          "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+          "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+          "uuid": "4beb6b22-25-9a137fc731c7b07ccb5b38eed20ca6b5c721bc04",
+          "xpath": "/html[1]/body[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/footer[1]/div[1]/div[2]"
+        }
+      ]
+    },
+    {
+      "name": "Columns",
+      "cluster": 18,
+      "source": "Columns",
+      "target": "Columns (columns18)",
+      "key": "columns18",
+      "instances": [
+        {
+          "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+          "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+          "uuid": "4beb6b22-26-3563b9908e27606cde12570437445e415df7bbae",
+          "xpath": "/html[1]/body[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/footer[1]/div[1]/div[3]"
+        }
+      ]
+    },
+    {
+      "name": "Columns",
+      "cluster": 19,
+      "source": "Columns",
+      "target": "Columns (columns19)",
+      "key": "columns19",
+      "instances": [
+        {
+          "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+          "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+          "uuid": "4beb6b22-27-4c01274fedd73934e167f11b4ea0f20604819d4f",
+          "xpath": "/html[1]/body[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/footer[1]/div[2]"
+        }
+      ]
+    }
+  ],
+  "outliers": [
+    {
+      "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+      "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+      "uuid": "4beb6b22-02-55406fc4d07096d53dc70908846555d33550e7d4",
+      "xpath": "/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]"
+    },
+    {
+      "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+      "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+      "uuid": "4beb6b22-03-5bce7fcb58e8b07f129fa6af58c2cb109438784d",
+      "xpath": "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]"
+    },
+    {
+      "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+      "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+      "uuid": "4beb6b22-11-aae8e4df35f21e6c8b483dfbb2be90e26848cb50",
+      "xpath": "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[6]/div[1]/div[2]/section[1]/h2[1]"
+    },
+    {
+      "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+      "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+      "uuid": "4beb6b22-13-48c74e117d685ac735432d06f433543ba77de9c4",
+      "xpath": "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[6]/div[1]/div[2]/section[1]/div[2]"
+    },
+    {
+      "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+      "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+      "uuid": "4beb6b22-14-780921d992de38749fec0cd6e00455b417d38775",
+      "xpath": "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[6]/div[1]/div[3]"
+    },
+    {
+      "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+      "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+      "uuid": "4beb6b22-17-1512059b2527bac6b9a86128a51de2751f2d57ca",
+      "xpath": "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[9]/section[1]/h3[1]"
+    },
+    {
+      "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+      "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+      "uuid": "4beb6b22-19-c58f009d8b328aef8e28152990bb1d926ad2bba8",
+      "xpath": "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[10]/section[1]/div[1]/div[1]"
+    },
+    {
+      "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+      "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+      "uuid": "4beb6b22-20-9f9c111d1ee0894d2fe1df6913aae891b3acf8e2",
+      "xpath": "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[10]/section[1]/div[1]/div[2]/p[1]"
+    },
+    {
+      "url": "https://www.idfcfirstbank.com/credit-card/metal-credit-card/mayura",
+      "urlHash": "4beb6b222ebd38ad531ee7e60c82d5cdaac26614",
+      "uuid": "4beb6b22-23-e4448f9028e6fa6fc4b95903d1df18d30e203513",
+      "xpath": "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[12]"
+    }
+  ],
+  "sections": [
+    {
+      "name": "section-1",
+      "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+      "count": 3
+    },
+    {
+      "name": "section-2",
+      "background": "rgb(255, 0, 0) none repeat scroll 98.1075% 50% / auto padding-box border-box",
+      "count": 1
+    }
+  ]
+}
