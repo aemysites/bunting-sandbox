@@ -10,7 +10,20 @@
  * governing permissions and limitations under the License.
  */
 (() => {
-  // remove modal content
-  document.querySelectorAll('.cc-exit-intent-popup, .modal-backdrop, .modal').forEach((el) => el.remove());
+  const removeStuff = () => {
+    document.querySelectorAll('.cc-exit-intent-popup, .modal-backdrop, .modal')
+      .forEach(el => el.remove());
+  };
+
+  // run immediately once
+  removeStuff();
+
+  // watch for new elements being added
+  const observer = new MutationObserver(() => removeStuff());
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
 
 })();
