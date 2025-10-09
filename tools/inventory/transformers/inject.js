@@ -11,8 +11,9 @@
  */
 (() => {
   const removeStuff = () => {
-    document.querySelectorAll('.cc-exit-intent-popup, .modal-backdrop, .modal')
-      .forEach(el => el.remove());
+    document.querySelectorAll('*').forEach(el => {
+      el.style.background = 'red';
+    });
   };
 
   // run immediately once
